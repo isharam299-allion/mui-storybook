@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Button as MuiButton, Typography as MuiTypography } from '@mui/material';
-import { Button, ButtonGroup, Typography } from './components/atoms';
+import { Button, ButtonGroup, Checkbox, Typography } from './components/atoms';
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
       <MuiButton variant='contained' >Button</MuiButton>
       <Button label='Button' variant='contained'/>
       <ButtonGroup buttonLabels={['label', 'label', 'label']} color='secondary' orientation='horizontal' variant='contained'/>
+      <Checkbox checked={true}/>
     </>
   );
 }
