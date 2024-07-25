@@ -1,15 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from './Button';
+import { Button, ButtonProps } from '@mui/material';
+import React from 'react';
 
+const ButtonWithDisplayName = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => (
+  <Button ref={ref} {...props}/>
+));
+
+ButtonWithDisplayName.displayName='Button';
 
 const meta = {
   title: 'Components/Atoms/Button',
-  component: Button,
+  component: ButtonWithDisplayName,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof ButtonWithDisplayName>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -17,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 
 export const ContainedButton: Story = {
   args: { 
-    label: 'Button',
+    children: 'Button',
     color: 'primary',
     size: 'medium',
     variant: 'contained'
@@ -25,7 +31,7 @@ export const ContainedButton: Story = {
 
 export const OutlinedButton: Story = {
     args: { 
-      label: 'Button',
+      children: 'Button',
       color: 'primary',
       size: 'medium',
       variant: 'outlined'
@@ -33,7 +39,7 @@ export const OutlinedButton: Story = {
 
 export const TextButton: Story = {
     args: { 
-      label: 'Button',
+      children: 'Button',
       color: 'primary',
       size: 'medium',
       variant: 'text'
